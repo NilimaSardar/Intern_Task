@@ -23,7 +23,7 @@ export default Header
 
 const HeaderStyle = styled.div`
   height: 90px;
-  /* background-color: #c0ffd9; */
+  /* background-color: #8f8fb5; */
   display: flex;
   justify-content: space-between;
   align-items: center;

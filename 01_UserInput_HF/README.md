@@ -1,8 +1,2 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create a Vite-powered React application using CSS or Tailwind CSS(If you feel comfortable, use this), featuring a Navbar, Footer, a User Input Form, and a Table to Display Submitted Data; the form should include fields for First Name, Last Name, Email, Phone Number, and Address, with a state to manage inputs, and upon submission, the data should be stored in state and displayed in a dynamically updating table; ensure your code is structured, readable, and properly commented. Feel free to ask if you have any queries. 

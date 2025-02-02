@@ -24,10 +24,11 @@ export default Header
 const HeaderStyle = styled.div`
   height: 90px;
   /* background-color: #8f8fb5; */
+  padding: 0 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #737373;
+  border-bottom: 1px solid #8f8fb5;
 
   .logo{
     font-size: 30px;

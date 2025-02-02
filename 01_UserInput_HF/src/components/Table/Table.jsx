@@ -36,7 +36,7 @@ export default Table
 const TableStyle = styled.div`
 
       /* background-color: #c4969e; */
-  height: auto;
+  height: calc(100vh - 90px - 200px);
   padding: 20px 0;
   color: black;
   display: flex;

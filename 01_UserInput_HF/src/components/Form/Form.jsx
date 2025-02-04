@@ -17,7 +17,16 @@ const Form = () => {
   const onSubmit =(event)=>{
     event.preventDefault();
 
-    console.log(event);
+    if (
+      !event.target[0].value.trim() ||
+      !event.target[1].value.trim() ||
+      !event.target[2].value.trim() ||
+      !event.target[3].value.trim() ||
+      !event.target[4].value.trim()
+    ) {
+      alert("All fields are required!");
+      return;
+    }
 
     setFirstName(event.target[0].value);
     setLastName(event.target[1].value);
@@ -67,35 +76,35 @@ const Form = () => {
               <div className='input-field'>
                 <label htmlFor="fname">First Name:</label>
                 <div className='input'>
-                  <input type="text" name="fname" placeholder='enter your first name' />
+                  <input type="text" name="fname" autoComplete="off" placeholder='enter your first name' />
                   <div className='icon'><FaUser/></div>
                 </div>
               </div>
               <div className='input-field'>
                 <label htmlFor="lname">Last Name:</label>
                 <div className='input'>
-                  <input type="text" name="lname" placeholder='enter your last name' />
+                  <input type="text" name="lname" autoComplete="off" placeholder='enter your last name' />
                   <div className='icon'><FaUser/></div>
                 </div>
               </div>
               <div className='input-field'>
                 <label htmlFor="email">Email:</label>
                 <div className="input">
-                  <input type="text" name="email" placeholder='enter your email' />
+                  <input type="text" name="email" autoComplete="off" placeholder='enter your email' />
                   <div className='icon'><IoMdMail/></div>
                 </div>
               </div>
               <div className='input-field'>
                 <label htmlFor="number">Phone Number:</label>
                 <div className="input">
-                  <input type="text"  name="number" placeholder='Phone Number Here' />
+                  <input type="text"  name="number" autoComplete="off" placeholder='Phone Number Here' />
                   <div className='icon'><FaPhoneAlt/></div>
                 </div>
               </div>
               <div className='input-field'>
                 <label htmlFor="address">Address:</label>
                 <div className="input">
-                  <input type="text" name="address" placeholder='Address Here' />
+                  <input type="text" name="address" autoComplete="off" placeholder='Address Here' />
                   <div className="icon"><TiContacts/></div>
                 </div>
               </div>

@@ -13,34 +13,45 @@ const Form = () => {
   const onSubmit = (event) => {
     event.preventDefault();
   
-    if (
-      !event.target[0].value.trim() ||
-      !event.target[1].value.trim() ||
-      !event.target[2].value.trim() ||
-      !event.target[3].value.trim() ||
-      !event.target[4].value.trim()
-    ) {
+    const firstName = event.target[0].value.trim();
+    const lastName = event.target[1].value.trim();
+    const email = event.target[2].value.trim();
+    const number = event.target[3].value.trim();
+    const address = event.target[4].value.trim();
+  
+
+    const namePattern = /^[A-Za-z]+$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const phonePattern = /^(98|97)[0-9]{8}$/; 
+  
+
+    if (!firstName || !lastName || !email || !number || !address) {
       alert("All fields are required!");
       return;
     }
+
+    if (!namePattern.test(firstName) || !namePattern.test(lastName)){
+      alert("First and Last name should only contain letters!")
+      return;
+    }
   
-    const newData = {
-      firstName: event.target[0].value,
-      lastName: event.target[1].value,
-      email: event.target[2].value,
-      number: event.target[3].value,
-      address: event.target[4].value,
-    };
+    if (!emailPattern.test(email)) {
+      alert("Enter a valid email address!");
+      return;
+    }
   
+    if (!phonePattern.test(number)) {
+      alert("Enter a valid 10-digit phone number!");
+      return;
+    }
+  
+    const newData = { firstName, lastName, email, number, address };
     setDataList([...dataList, newData]);
-    // console.log(dataList[dataList.length - 1]?.email);
-    
-    
   
     event.target.reset();
-
-    setIsSubmitted(true);
+    setIsSubmitted(true)
   };
+  
   
 
   return(

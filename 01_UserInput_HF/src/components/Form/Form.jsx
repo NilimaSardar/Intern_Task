@@ -7,16 +7,12 @@ import { TiContacts } from "react-icons/ti";
 
 const Form = () => {
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
-  const [address, setAddress] = useState("");
+  const [dataList, setDataList] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const onSubmit =(event)=>{
+  const onSubmit = (event) => {
     event.preventDefault();
-
+  
     if (
       !event.target[0].value.trim() ||
       !event.target[1].value.trim() ||
@@ -27,93 +23,106 @@ const Form = () => {
       alert("All fields are required!");
       return;
     }
-
-    setFirstName(event.target[0].value);
-    setLastName(event.target[1].value);
-    setEmail(event.target[2].value);
-    setNumber(event.target[3].value);
-    setAddress(event.target[4].value);
+  
+    const newData = {
+      firstName: event.target[0].value,
+      lastName: event.target[1].value,
+      email: event.target[2].value,
+      number: event.target[3].value,
+      address: event.target[4].value,
+    };
+  
+    setDataList([...dataList, newData]);
+    // console.log(dataList[dataList.length - 1]?.email);
+    
+    
+  
+    event.target.reset();
 
     setIsSubmitted(true);
-  }
+  };
+  
 
   return(
     <>
-    
-        {isSubmitted?(
+      <FormStyled>
+        <h1>Account</h1>
+        <form action="" onSubmit={onSubmit}>
+          <div className='input-field'>
+            <label htmlFor="fname">First Name:</label>
+            <div className='input'>
+              <input type="text" name="fname" autoComplete="off" placeholder='enter your first name' />
+              <div className='icon'><FaUser/></div>
+            </div>
+          </div>
+          <div className='input-field'>
+            <label htmlFor="lname">Last Name:</label>
+            <div className='input'>
+              <input type="text" name="lname" autoComplete="off" placeholder='enter your last name' />
+              <div className='icon'><FaUser/></div>
+            </div>
+          </div>
+          <div className='input-field'>
+            <label htmlFor="email">Email:</label>
+            <div className="input">
+              <input type="text" name="email" autoComplete="off" placeholder='enter your email' />
+              <div className='icon'><IoMdMail/></div>
+            </div>
+          </div>
+          <div className='input-field'>
+            <label htmlFor="number">Phone Number:</label>
+            <div className="input">
+              <input type="text"  name="number" autoComplete="off" placeholder='Phone Number Here' />
+              <div className='icon'><FaPhoneAlt/></div>
+            </div>
+          </div>
+          <div className='input-field'>
+            <label htmlFor="address">Address:</label>
+            <div className="input">
+              <input type="text" name="address" autoComplete="off" placeholder='Address Here' />
+              <div className="icon"><TiContacts/></div>
+            </div>
+          </div>
+          <button type='submit'>Submit</button>
+        </form>
+      </FormStyled>
+      
+          
+      <TableStyle>
+        {!isSubmitted?(
+          <>
+            <h1>Fill the form first</h1>
+          </>
+        ):(<>
+          <h1>Form Data</h1>
+          <div className='table'>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Email</th>
+                          <th>Phone no</th>
+                          <th>Address</th>
+                      </tr>
+                  </thead>
 
-          <TableStyle>
-              <h1>Display Data</h1>
-              <div className='table'>
-                  <table>
-                      <thead>
-                          <tr>
-                              <th>First Name</th>
-                              <th>Last Name</th>
-                              <th>Email</th>
-                              <th>Phone no</th>
-                              <th>Address</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td>{firstName}</td>
-                              <td>{lastName}</td>
-                              <td>{email}</td>
-                              <td>{number}</td>
-                              <td>{address}</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </TableStyle>
+                  <tbody>
+                    {dataList.map((data, index) => (
+                      <tr key={index}>
+                        <td>{data.firstName}</td>
+                        <td>{data.lastName}</td>
+                        <td>{data.email}</td>
+                        <td>{data.number}</td>
+                        <td>{data.address}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+              </table>
+          </div>
+        </>)}
 
-          ):(
-
-          <FormStyled>
-            <h1>Account</h1>
-            <form action="" onSubmit={onSubmit}>
-              <div className='input-field'>
-                <label htmlFor="fname">First Name:</label>
-                <div className='input'>
-                  <input type="text" name="fname" autoComplete="off" placeholder='enter your first name' />
-                  <div className='icon'><FaUser/></div>
-                </div>
-              </div>
-              <div className='input-field'>
-                <label htmlFor="lname">Last Name:</label>
-                <div className='input'>
-                  <input type="text" name="lname" autoComplete="off" placeholder='enter your last name' />
-                  <div className='icon'><FaUser/></div>
-                </div>
-              </div>
-              <div className='input-field'>
-                <label htmlFor="email">Email:</label>
-                <div className="input">
-                  <input type="text" name="email" autoComplete="off" placeholder='enter your email' />
-                  <div className='icon'><IoMdMail/></div>
-                </div>
-              </div>
-              <div className='input-field'>
-                <label htmlFor="number">Phone Number:</label>
-                <div className="input">
-                  <input type="text"  name="number" autoComplete="off" placeholder='Phone Number Here' />
-                  <div className='icon'><FaPhoneAlt/></div>
-                </div>
-              </div>
-              <div className='input-field'>
-                <label htmlFor="address">Address:</label>
-                <div className="input">
-                  <input type="text" name="address" autoComplete="off" placeholder='Address Here' />
-                  <div className="icon"><TiContacts/></div>
-                </div>
-              </div>
-              <button type='submit'>Submit</button>
-            </form>
-          </FormStyled>
-
-        )}
-    
+      </TableStyle>  
     </>
   
   )
@@ -189,6 +198,7 @@ const FormStyled = styled.div`
     font-size: 18px;
     letter-spacing: 1px;
     font-weight: 500;
+    cursor: pointer;
   }
 `;
 

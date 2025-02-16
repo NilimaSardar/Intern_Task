@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 const demoData = [
-  { id: 1, name: "Shikshya Nepal", email: "shikshya@example.com", phone: "123-456-7890", country: "USA", date: "2024-02-12" },
-  { id: 2, name: "Bir Bahadur Magar", email: "bir@example.com", phone: "555-666-7777", country: "Canada", date: "2023-12-10" },
-  { id: 3, name: "Ram Thapa", email: "ram@example.com", phone: "987-654-3210", country: "UK", date: "2024-01-25" },
-  { id: 4, name: "Aman Joshi", email: "aman@example.com", phone: "111-222-3333", country: "Australia", date: "2024-03-05" },
+  { id: 1, name: "Shikshya Nepal", email: "shikshya@example.com", phone: "7567567908", country: "USA", date: "2024-02-12" },
+  { id: 2, name: "Bir Bahadur Magar", email: "bir@example.com", phone: "8968755398", country: "Canada", date: "2023-12-10" },
+  { id: 3, name: "Ram Thapa", email: "ram@example.com", phone: "9876543210", country: "Nepal", date: "2025-01-25" },
+  { id: 4, name: "Aman Joshi", email: "aman@example.com", phone: "5657896567", country: "Australia", date: "2024-03-05" },
 ];
 
 const TableComponent = () => {
@@ -28,10 +28,10 @@ const TableComponent = () => {
   };
 
   return (
-    <div className="p-6">
-      <table className="min-w-full bg-white border border-gray-300 rounded-lg overflow-hidden shadow-md">
+    <div className="grid place-items-center h-screen w-[80%] p-6 mx-auto">
+      <table className="min-w-full bg-blue-200 border border-gray-300 rounded-lg overflow-hidden shadow-md">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-blue-300">
             <th className="p-3 border">S.N</th>
             <th className="p-3 border cursor-pointer" onClick={() => sortData("name")}>
               Full Name {sortConfig.key === "name" ? (sortConfig.direction === "asc" ? "↑" : "↓") : ""}

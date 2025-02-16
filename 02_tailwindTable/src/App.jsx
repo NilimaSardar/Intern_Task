@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      {/* <TableComponent/> */}
-      <Tailwind/>
+      <TableComponent/>
+      {/* <Tailwind/> */}
     </>
   )
 }

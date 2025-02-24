@@ -47,7 +47,7 @@ export default function DataTable() {
 
   const requestSort = (key) => {
     let direction = "asc";
-    if (sortConfig.key === key && sortConfig.direction === "asc") {
+    if (sortConfig.key === key && sortConfig.direction === "asc") {  
       direction = "desc";
     }
     setSortConfig({ key, direction });
@@ -75,12 +75,12 @@ export default function DataTable() {
         </select>
       </div>
 
-      <table className="w-full border-collapse rounded-2xl overflow-hidden shadow-lg">
-        <thead className="bg-gray-100">
+      <table className="w-full  bg-gray-200 border border-collapse rounded-2xl overflow-hidden shadow-lg">
+        <thead className="bg-blue-200 border">
           <tr>
             <th className="p-3 border">S.N</th>
             <th
-              className="p-3 border cursor-pointer hover:bg-gray-200"
+              className="p-3 border cursor-pointer hover:bg-blue-300"
               onClick={() => requestSort("fullName")}
             >
               Full Name {sortConfig.key === "fullName" ? (sortConfig.direction === "asc" ? "▲" : "▼") : ""}
@@ -89,7 +89,7 @@ export default function DataTable() {
             <th className="p-3 border">Phone Number</th>
             <th className="p-3 border">Country</th>
             <th
-              className="p-3 border cursor-pointer hover:bg-gray-200"
+              className="p-3 border cursor-pointer hover:bg-blue-300"
               onClick={() => requestSort("date")}
             >
               Date {sortConfig.key === "date" ? (sortConfig.direction === "asc" ? "▲" : "▼") : ""}
